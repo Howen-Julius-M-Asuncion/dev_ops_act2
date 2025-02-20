@@ -19,14 +19,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+    TextEditingController _username = TextEditingController();
+    TextEditingController _password = TextEditingController();
+    bool hidePassword = false;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemFill.darkColor,
       child:
       SafeArea(
-        child: Column(children: [
-          SizedBox(height: 200,),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [
+          // SizedBox(height: 200,),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text('Quora', style: TextStyle(
               color: CupertinoColors.destructiveRed,
@@ -71,6 +76,24 @@ class _MyAppState extends State<MyApp> {
             ]),
           ),
           SizedBox(height: 40,),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+            child: CupertinoTextField(
+              placeholder: 'Username',
+              padding: EdgeInsets.all(10),
+              prefix: Icon(CupertinoIcons.profile_circled, color: CupertinoColors.label,),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: CupertinoTextField(
+              placeholder: 'Password',
+              padding: EdgeInsets.all(10),
+              prefix: Icon(CupertinoIcons.lock_circle, color: CupertinoColors.label,),
+              suffix: Icon(CupertinoIcons.eye_solid, color: CupertinoColors.label,),
+            ),
+          ),
+          SizedBox(height: 40,),
           CupertinoButton.tinted(
             borderRadius: BorderRadius.all(Radius.circular(25)),
             child:Text('Continue to Login',
@@ -90,7 +113,7 @@ class _MyAppState extends State<MyApp> {
             padding: EdgeInsets.fromLTRB(30, 5, 30, 0),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
               Flexible(child:
-              Text('Quora · Clone · for · Dev · Ops · Act 2',
+                Text('Quora · Clone · for · Dev · Ops · 2025',
                   overflow: TextOverflow.visible,
                   textAlign: TextAlign.start,
                   style: TextStyle(
@@ -98,12 +121,10 @@ class _MyAppState extends State<MyApp> {
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
                   )
-              ),
+                ),
               ),
             ]),
           ),
-
-
         ]),
       )
     );
