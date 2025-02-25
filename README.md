@@ -1,8 +1,7 @@
-# dev_ops_act2
+# Quora Clone
 
 A new Flutter project for Dev Ops Activity 2
 
-- Clone website: quora
-- -[ ] Login Page
-- -[ ] Home Page
+-[x] Login Page
+-[x] Home Page
 
