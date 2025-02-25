@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("/"),
+            image: AssetImage("images/quora_background.png"),
             fit: BoxFit.cover,
           )
         ),
@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
             // SizedBox(height: 200,),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text('Quora', style: TextStyle(
-                color: CupertinoColors.destructiveRed,
+                color: CupertinoColors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 60,
               )),
@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                     overflow: TextOverflow.visible,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: CupertinoColors.destructiveRed,
+                      color: CupertinoColors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     )
@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ]),
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 25,),
             Divider(color: CupertinoColors.systemGrey3, indent: 25, endIndent: 25, /* height: 95, */),
             // SizedBox(height: 5,),
             Padding(
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
                     overflow: TextOverflow.visible,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      color: CupertinoColors.destructiveRed,
+                      color: CupertinoColors.white,
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
                     )
@@ -100,41 +100,57 @@ class _MyAppState extends State<MyApp> {
             SizedBox(height: 40,),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-              child: CupertinoTextField(
-                controller: _username,
-                placeholder: 'Username',
-                padding: EdgeInsets.all(10),
-                prefix: Icon(CupertinoIcons.profile_circled, color: CupertinoColors.label,),
+              child: SizedBox(
+                height: 45,
+                child: CupertinoTextField(
+                  controller: _username,
+                  placeholder: 'Username',
+                  padding: EdgeInsets.all(10),
+                  prefix: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                    child: Icon(CupertinoIcons.profile_circled, color: CupertinoColors.label,),
+                  ),
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-              child: CupertinoTextField(
-                controller: _password,
-                placeholder: 'Password',
-                padding: EdgeInsets.all(10),
-                obscureText: hidePassword,
-                prefix: Icon(CupertinoIcons.lock_circle, color: CupertinoColors.label,),
-                suffix: CupertinoButton(child: Icon(
-                  hidePassword? CupertinoIcons.eye_solid : CupertinoIcons.eye_slash_fill, color: CupertinoColors.label, size:12),
-                  onPressed: (){
-                    setState(() {
-                      hidePassword = !hidePassword;
-                    });
-                  },
+              child: SizedBox(
+                height: 45,
+                child: CupertinoTextField(
+                  controller: _password,
+                  placeholder: 'Password',
+                  padding: EdgeInsets.all(10),
+                  obscureText: hidePassword,
+                  prefix: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                    child: Icon(CupertinoIcons.lock_circle, color: CupertinoColors.label,),
+                  ),
+                  suffix: CupertinoButton(child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                    child: Icon(
+                      hidePassword? CupertinoIcons.eye_solid : CupertinoIcons.eye_slash_fill, color: CupertinoColors.label, size:24),
+                  ),
+                    onPressed: (){
+                      setState(() {
+                        hidePassword = !hidePassword;
+                      });
+                    },
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 20,),
             Text('$loginMsg', style: TextStyle(color: CupertinoColors.destructiveRed)),
             SizedBox(height: 20,),
-            CupertinoButton.tinted(
+            CupertinoButton(
               borderRadius: BorderRadius.all(Radius.circular(25)),
+              color: Color.fromRGBO(48, 48, 48, 0.6),
               child:Text('Continue to Login',
                 style: TextStyle(
                   color: CupertinoColors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 16,
                 )
               ),
               onPressed: (){
@@ -157,7 +173,7 @@ class _MyAppState extends State<MyApp> {
                   overflow: TextOverflow.visible,
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    color: CupertinoColors.destructiveRed,
+                    color: CupertinoColors.white,
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
                   )
