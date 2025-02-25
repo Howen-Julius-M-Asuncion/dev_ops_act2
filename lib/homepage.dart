@@ -10,6 +10,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
+  String _selectedPage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,33 @@ class _HomepageState extends State<Homepage> {
           setState(() {
             _selectedIndex = index;
           });
+          switch (index) {
+            case 0:
+              setState(() {
+                _selectedPage = 'Home';
+              });
+              break;
+            case 1:
+              setState(() {
+                _selectedPage = 'Following';
+              });
+              break;
+            case 2:
+              setState(() {
+                _selectedPage = 'Answer';
+              });
+              break;
+            case 3:
+              setState(() {
+                _selectedPage = 'Spaces';
+              });
+              break;
+            case 4:
+              setState(() {
+                _selectedPage = 'Notifications';
+              });
+              break;
+          }
         },
         height: 75,
         items: [
@@ -37,7 +65,7 @@ class _HomepageState extends State<Homepage> {
             label: 'Create',
           ),
           BottomNavigationBarItem(
-            icon: Icon(_selectedIndex == 3 ? CupertinoIcons.person_3_fill : CupertinoIcons.person_3),
+            icon: Icon(_selectedIndex == 3 ? CupertinoIcons.person_3_fill : CupertinoIcons.person_3, size: 40,),
             label: 'Spaces',
           ),
           BottomNavigationBarItem(
@@ -67,7 +95,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      'Home',
+                      '$_selectedPage',
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
