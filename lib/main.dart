@@ -141,7 +141,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             SizedBox(height: 20,),
-            Text('$loginMsg', style: TextStyle(color: CupertinoColors.destructiveRed)),
+            Text('$loginMsg', style: TextStyle(color: CupertinoColors.destructiveRed, fontWeight: FontWeight.w900)),
             SizedBox(height: 20,),
             CupertinoButton(
               borderRadius: BorderRadius.all(Radius.circular(25)),

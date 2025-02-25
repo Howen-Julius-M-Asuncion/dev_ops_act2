@@ -62,7 +62,7 @@ class _HomepageState extends State<Homepage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(_selectedIndex == 2 ? CupertinoIcons.pencil_circle_fill : CupertinoIcons.pencil_circle),
-            label: 'Create',
+            label: 'Answer',
           ),
           BottomNavigationBarItem(
             icon: Icon(_selectedIndex == 3 ? CupertinoIcons.person_3_fill : CupertinoIcons.person_3, size: 40,),
@@ -94,7 +94,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      _selectedPage,
+                      '$_selectedPage',
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
@@ -209,18 +209,18 @@ class _HomepageState extends State<Homepage> {
                               content: Text('Are you sure?'),
                               actions: [
                                 CupertinoButton(
-                                  child: Text("Yes"),
+                                  child: Text("No"),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                CupertinoButton(
+                                  child: Text("Yes", style: TextStyle(color: CupertinoColors.destructiveRed)),
                                   onPressed: () {
                                     Navigator.pushReplacement(
                                       context,
                                       CupertinoPageRoute(builder: (context) => MyApp()),
                                     );
-                                  },
-                                ),
-                                CupertinoButton(
-                                  child: Text("No", style: TextStyle(color: CupertinoColors.destructiveRed)),
-                                  onPressed: () {
-                                    Navigator.pop(context);
                                   },
                                 ),
                               ],
