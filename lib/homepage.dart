@@ -9,32 +9,40 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         activeColor: CupertinoColors.systemRed.highContrastColor,
-        height: 70,
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        height: 75,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.house),
-            label: "Home",
+            icon: Icon(_selectedIndex == 0 ? CupertinoIcons.house_fill : CupertinoIcons.house),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.doc_text),
-            label: "Following",
+            icon: Icon(_selectedIndex == 1 ? CupertinoIcons.square_list_fill: CupertinoIcons.square_list),
+            label: 'Following',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.create),
-            label: "Create",
+            icon: Icon(_selectedIndex == 2 ? CupertinoIcons.pencil_circle_fill : CupertinoIcons.pencil_circle),
+            label: 'Create',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_3),
-            label: "Spaces",
+            icon: Icon(_selectedIndex == 3 ? CupertinoIcons.person_3_fill : CupertinoIcons.person_3),
+            label: 'Spaces',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.bell),
-            label: "Notifications",
+            icon: Icon(_selectedIndex == 4 ? CupertinoIcons.bell_fill : CupertinoIcons.bell),
+            label: 'Notifications',
           ),
         ],
       ),
