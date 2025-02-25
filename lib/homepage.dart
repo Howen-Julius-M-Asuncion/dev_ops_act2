@@ -10,7 +10,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
-  String _selectedPage = '';
+  String _selectedPage = 'Home';
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,6 @@ class _HomepageState extends State<Homepage> {
               navigationBar: CupertinoNavigationBar(
                 automaticBackgroundVisibility: false,
                 automaticallyImplyLeading: false,
-                border: null,
                 leading: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -95,7 +94,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     SizedBox(width: 15),
                     Text(
-                      '$_selectedPage',
+                      _selectedPage,
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
@@ -238,8 +237,12 @@ class _HomepageState extends State<Homepage> {
                   ],
                 ),
               ),
-              child: Column(
+              child: SafeArea(
+                child: Column(
+                  children: [
 
+                  ],
+                )
               ),
             );
           },
