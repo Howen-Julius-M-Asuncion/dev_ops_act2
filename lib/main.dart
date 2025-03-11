@@ -8,6 +8,9 @@ void main() {
       title: 'Cupertino Dev Ops Act 1',
       home: MyApp(),
       debugShowCheckedModeBanner: false,
+      theme: CupertinoThemeData(
+        brightness: Brightness.light
+      )
     ),
   );
 }
