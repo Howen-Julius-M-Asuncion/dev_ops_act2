@@ -209,18 +209,18 @@ class _HomepageState extends State<Homepage> {
                               content: Text('Are you sure?'),
                               actions: [
                                 CupertinoButton(
-                                  child: Text("No"),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                                CupertinoButton(
                                   child: Text("Yes", style: TextStyle(color: CupertinoColors.destructiveRed)),
                                   onPressed: () {
                                     Navigator.pushReplacement(
                                       context,
                                       CupertinoPageRoute(builder: (context) => MyApp()),
                                     );
+                                  },
+                                ),
+                                CupertinoButton(
+                                  child: Text("No"),
+                                  onPressed: () {
+                                    Navigator.pop(context);
                                   },
                                 ),
                               ],
